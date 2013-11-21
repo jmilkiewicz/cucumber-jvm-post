@@ -1,8 +1,9 @@
 package com.zsoltfabok.blog;
 
+import cucumber.api.junit.Cucumber;
 import org.junit.runner.RunWith;
 
-import cucumber.junit.Cucumber;
+
 
 @RunWith(Cucumber.class)
 @Cucumber.Options(features="classpath:simple_text_munger.feature")
