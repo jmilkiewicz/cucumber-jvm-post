@@ -1,12 +1,15 @@
 package com.zsoltfabok.blog;
 
-import static org.junit.Assert.assertEquals;
+
 
 import java.util.List;
+import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 
-import cucumber.annotation.en.Given;
-import cucumber.annotation.en.Then;
-import cucumber.annotation.en.When;
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
+
 
 public class SimpleTextMungerStepsdef {
     private SimpleTextMunger munger;
@@ -24,7 +27,7 @@ public class SimpleTextMungerStepsdef {
 
     @Then("^I receive \"([^\"]*)\"$")
     public void I_receive_(String expectation) {
-        assertEquals(expectation, result);
+        assertThat(expectation, is(result));
     }
 
     @Given("^the following users$")
