@@ -4,12 +4,14 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.List;
 
+import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
 
-import cucumber.annotation.en.Given;
-import cucumber.annotation.en.Then;
-import cucumber.annotation.en.When;
 
+@ContextConfiguration(locations = { "/applicationContext.xml" })
 public class SimpleTextMungerStepsdef {
 
     @Autowired
