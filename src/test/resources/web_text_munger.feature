@@ -1,9 +1,16 @@
 Feature: web text munger kata
 
   @web
-  Scenario: It should process a sentence
+  Scenario Outline: : It should process a sentence
     Given I am on the home page
-     When I enter "flow flow"
+     When I enter <input>
       And I press "submit"
-     Then I see "folw folw" as the munged text
-      And I see "flow flow" as the original
+     Then I see <outcome> as the munged text
+      And I see <input> as the original
+
+
+  Examples:
+  | input            | outcome          |
+  | "an"             | "an"            |
+  | "flow flow"      | "folw folw"     |
+  | "spice"          | "scipe"         |
