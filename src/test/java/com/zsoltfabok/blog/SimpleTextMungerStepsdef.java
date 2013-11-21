@@ -1,8 +1,8 @@
 package com.zsoltfabok.blog;
 
-import cucumber.annotation.en.Given;
-import cucumber.annotation.en.Then;
-import cucumber.annotation.en.When;
+import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 
 public class SimpleTextMungerStepsdef {
 	@Given("^I have an instance of my class$")
