@@ -1,15 +1,15 @@
 package com.zsoltfabok.blog;
 
-import static org.junit.Assert.assertEquals;
-
+import cucumber.api.java.After;
+import cucumber.api.java.Before;
+import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-import cucumber.annotation.Before;
-import cucumber.annotation.en.Given;
-import cucumber.annotation.en.Then;
-import cucumber.annotation.en.When;
+import static org.junit.Assert.assertEquals;
 
 public class WebTextMungerStepsdef {
 
@@ -22,15 +22,24 @@ public class WebTextMungerStepsdef {
             tomcat.start();
             tomcat.deploy("munger");
             browser = new FirefoxDriver();
-
+        }
+        /*
             Runtime.getRuntime().addShutdownHook(new Thread() {
                 public void run() {
-                    browser.close();
+
                     tomcat.stop();
                 }
             });
-        }
+        } */
     }
+    @After("@web")
+    public void beforeScenario2() {
+        browser.quit();
+        tomcat.stop();
+    }
+
+
+
 
     @Given("^I am on the home page")
     public void I_am_on_the_home_page() {
