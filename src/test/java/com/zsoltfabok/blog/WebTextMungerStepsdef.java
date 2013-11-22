@@ -2,6 +2,7 @@ package com.zsoltfabok.blog;
 
 import static org.junit.Assert.assertEquals;
 
+import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -25,7 +26,7 @@ public class WebTextMungerStepsdef {
 
             Runtime.getRuntime().addShutdownHook(new Thread() {
                 public void run() {
-                    browser.close();
+                    browser.quit();
                     tomcat.stop();
                 }
             });
