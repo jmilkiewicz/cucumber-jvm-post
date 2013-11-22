@@ -3,9 +3,9 @@ package com.zsoltfabok.blog;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
-import cucumber.annotation.en.Given;
-import cucumber.annotation.en.Then;
-import cucumber.annotation.en.When;
+import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 
 public class SimpleTextMungerStepsdef {
 
@@ -13,14 +13,12 @@ public class SimpleTextMungerStepsdef {
     private Munger munger;
     private SentenceHelper sentenceHelper;
     private String result;
-    private String inputWord;
-    private String mungedWord;
 
     @Given("^I have a mocked munger which always returns \"([^\"]*)\" for \"([^\"]*)\"$")
     public void I_have_a_mocked_munger_which_always_returns_(String munged, String word) {
         munger = mock(Munger.class);
-        inputWord = word;
-        mungedWord = munged;
+        when(munger.munge(word)).thenReturn(munged);
+
     }
 
     @Given("^I have an instance of my class$")
@@ -32,7 +30,6 @@ public class SimpleTextMungerStepsdef {
 
     @When("^I call my method with \"([^\"]*)\"$")
     public void I_call_my_method_with_(String word) {
-        when(munger.munge(inputWord)).thenReturn(mungedWord);
         result = simpleTextMunger.execute(word);
     }
 

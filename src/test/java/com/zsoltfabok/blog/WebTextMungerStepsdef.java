@@ -2,19 +2,19 @@ package com.zsoltfabok.blog;
 
 import static org.junit.Assert.assertEquals;
 
+import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-import cucumber.annotation.Before;
-import cucumber.annotation.en.Given;
-import cucumber.annotation.en.Then;
-import cucumber.annotation.en.When;
+
 
 public class WebTextMungerStepsdef {
 
-    private static EmbeddedTomcat tomcat = new EmbeddedTomcat();
-    private static WebDriver browser;
+    private EmbeddedTomcat tomcat = new EmbeddedTomcat();
+    private WebDriver browser;
 
     @Before("@web")
     public void beforeScenario() {
